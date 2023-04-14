@@ -37,7 +37,10 @@ As a PoC we have created a python file that automates the process.
 pip install -r requirements.txt
 ```
 #### Usage:
+Ideally you have 2 VMs. 1 for vulnerable server and 1 for the attacker. Both with public IP
+Attacker runs the exploit server (Fake LDAP server ssending exploit javascript) passing in public IP of that vm as an arg (instead of localhost). On same VM attacker runs nc command to listen for reverse shell
 
+Vuln VM runs the vulnerable web server code (docker below)
 
 * Start a netcat listener to accept reverse shell connection.<br>
 ```py
