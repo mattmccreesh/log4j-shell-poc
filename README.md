@@ -1,4 +1,5 @@
 # log4j-shell-poc
+Fork of https://github.com/kozmer/log4j-shell-poc used for highlighting defenses for security vuls (defenses are in a different private repo)
 A Proof-Of-Concept for the recently found CVE-2021-44228 vulnerability. <br><br>
 Recently there was a new vulnerability in log4j, a java logging library that is very widely used in the likes of elasticsearch, minecraft and numerous others.
 
@@ -74,6 +75,14 @@ We have added a Dockerfile with the vulnerable webapp. You can use this by follo
 Once it is running, you can access it on localhost:8080
 
 If you would like to further develop the project you can use Intellij IDE which we used to develop the project. We have also included a `.idea` folder where we have configuration files which make the job a bit easier. You can probably also use other IDE's too.
+
+Developing it.
+Code is in vulnerable-application/src/main/java/com/example/log4shell. You can modify java files here.
+vulnerable-application/src/main/webapp/index.jsp is also of interest and can be changed to alter the main page html
+It is a Maven project. You can build it with Eclipse following instructions here https://crunchify.com/how-to-create-a-war-file-from-eclipse-using-maven-plugin-apache-maven-war-plugin-usage/
+The main output is a WAR file in log4j-shell-poc\vulnerable-application\target folder. Copy that to log4j-shell-poc\target to run your compiled code. Once that is there, run the docker build and docker run commands above
+
+Another tip: run "nohup docker run --network host log4j-shell-poc &" to survive the shell's life and user's login life
 
 <br>
 
